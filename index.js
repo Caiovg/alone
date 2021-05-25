@@ -4,8 +4,11 @@ const app = express();
 const importData = require("./data.json");
 let port = process.env.PORT || 3333;
 
+const TaskRoutes = require('./src/routes/TaskRoutes');
+
 app.use(cors());
 app.use(express.json());
+app.use('/task', TaskRoutes);
 
 app.get("/", (req, res) => {
     res.send("Hello World");
